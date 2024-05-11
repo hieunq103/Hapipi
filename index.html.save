@@ -1,3 +1,58 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOR TLinh</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/f6c4c9c68e.js" crossorigin="anonymous"></script>
+
+
+</head>
+<body>
+<div class="container">
+
+    <div class="music-player">
+        <img src="TLINH.png" class="new-image" style="top: 480px; left: 30px">
+        <img src="TLINH.png" class="new-image" style="top: 40px; right: 20px;">
+
+        <nav>
+            <div class="circle">
+            <i class="fa-solid fa-gift"></i>
+            </div>
+            <div class="circle">
+                <i class="fa-solid fa-cake-candles"></i>
+                </div>
+        </nav>
+        <img src="TieuLinh.jpg" class="song-img">
+
+        <h1>HAPIPI🥳</h1>
+        <p>T.Linhh</p>
+        <audio  id="song">
+            <source src="Sinhnhat.mp3" type="audio/mpeg">
+        </audio>
+        <input type="range" value="0" id="progress">
+
+        <div class="controls">
+
+            <div onclick="playPause()"><i class="fa-solid fa-play" id="ctrlIcon"></i></div>
+
+        </div>
+
+    </div>
+
+</div>
+<script>
+    let progress = document.getElementById("progress");
+    let song = document.getElementById("song");
+    let crtlIcon = document.getElementById("ctrlIcon");
+
+    song.onloadedmetadata = function(){
+        progress.max = song.duration;
+        progress.value = song.currentTime;
+    }
+function playPause(){
+    if(crtlIcon.classList.contains("fa-pause")){
         song.pause();
         crtlIcon.classList.remove("fa-pause");
         crtlIcon.classList.add("fa-play");
